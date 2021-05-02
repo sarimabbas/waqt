@@ -11,7 +11,7 @@ import {
   ModalOverlay,
   Text,
 } from "@chakra-ui/react";
-import { useRecoilState, useSetRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import Select from "react-select";
 import moment from "moment-timezone";
 import { clocks, showAddClockModal } from "../store";
@@ -23,7 +23,7 @@ import { v4 as uuidv4 } from "uuid";
 function AddClock() {
   const [show, setShow] = useRecoilState(showAddClockModal);
   const [selectedTimezone, setSelectedTimezone] = useState("");
-  const setClocks = useSetRecoilState(clocks);
+  const [clocksData, setClocks] = useRecoilState(clocks);
 
   const timezones = useMemo(() => {
     const list = moment.tz.names();
@@ -38,11 +38,14 @@ function AddClock() {
     });
   }, []);
 
+  const primaryAlreadyExists = () => clocksData.some((c) => c.isPrimary);
+
   const handleAdd = () => {
     const newClock: IClock = {
       id: uuidv4(),
       name: selectedTimezone,
       timezone: selectedTimezone,
+      isPrimary: !primaryAlreadyExists(),
     };
     setClocks((val) => [...val, newClock]);
     setShow(false);

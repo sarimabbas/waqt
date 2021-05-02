@@ -35,9 +35,15 @@ export const clocks = atom<IClock[]>({
       id: uuidv4(),
       name: "Current location",
       timezone: "local",
+      isPrimary: true,
     },
   ],
   effects_UNSTABLE: [localStorageEffect("clocks")],
+});
+
+export const warpClockAtom = atom<DateTime>({
+  key: "warpClock", // unique ID (with respect to other atoms/selectors)
+  default: null, // default value (aka initial value)
 });
 
 export const showAddClockModal = atom<boolean>({

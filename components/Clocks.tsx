@@ -6,7 +6,7 @@ import { clocks } from "../store";
 const Clocks = () => {
   const clockList = useRecoilValue(clocks);
   return (
-    <SimpleGrid columns={2} spacing={5}>
+    <SimpleGrid columns={[1, 2]} spacing={5}>
       {clockList.map((c) => (
         <Clock {...c} key={c.id} />
       ))}

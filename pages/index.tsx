@@ -1,6 +1,7 @@
-import { Box, Button, HStack, Link, Text, Heading } from "@chakra-ui/react";
+import { Box, Button, HStack, Link, Text, Input } from "@chakra-ui/react";
 import { useSetRecoilState } from "recoil";
 import AddClock from "../components/AddClock";
+import ChangeTime from "../components/ChangeTime";
 import Clocks from "../components/Clocks";
 import Layout from "../components/Layout";
 import { showAddClockModal } from "../store";
@@ -23,19 +24,7 @@ export default function Home() {
         >
           Add a clock
         </Button>
-        <Button
-          bgColor="green.100"
-          textColor="olive.700"
-          _hover={{
-            textColor: "white",
-            bgImage: "url('/warp.gif')",
-            bgRepeat: "no-repeat",
-            bgSize: "cover",
-            bgPosition: "50% 20%",
-          }}
-        >
-          Warp time
-        </Button>
+        <ChangeTime />
       </HStack>
       <AddClock />
       <Box h="4"></Box>
