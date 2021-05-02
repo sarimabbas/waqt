@@ -6,16 +6,16 @@ import ChangeTime from "../components/ChangeTime";
 import Clocks from "../components/Clocks";
 import Layout from "../components/Layout";
 import { showAddClockModal } from "../store";
+import Seo from "../components/Seo";
 
 export default function Home() {
   const setShow = useSetRecoilState(showAddClockModal);
   return (
     <>
-      <Head>Waqt - A simple timezone tracker</Head>
-      <meta
-        name="description"
-        content="An essential tool for the remote era. Waqt lacks you effortlessly convert between timezones across the world. With its powerful warp time feature, you can keep up with colleagues and friends no matter where they are."
-        key="description"
+      <Seo
+        title="Waqt - A simple timezone tracker"
+        description="An essential tool for the remote era. Waqt lets you effortlessly convert between timezones across the world. With its powerful warp time feature, you can keep up with colleagues and friends no matter where they are."
+        image={`https://getwaqt.netlify.app/screenshot.png`}
       />
       <Layout>
         <Box h="8" />
