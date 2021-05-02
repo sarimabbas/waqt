@@ -51,10 +51,7 @@ const ChangeTime = () => {
     if (warpClock) {
       return warpState;
     }
-    return {
-      bgColor: "green.100",
-      textColor: "olive.700",
-    };
+    return {};
   };
 
   const inputEl = useRef(null);
@@ -62,19 +59,19 @@ const ChangeTime = () => {
   return (
     <Popover>
       <PopoverTrigger>
-        <Button {...buttonBaseState()} _hover={warpState}>
+        <Button {...buttonBaseState()} _hover={warpState} w="110px">
           {warpClock
             ? warpClock.toLocaleString({
                 hour: "numeric",
                 minute: "2-digit",
               })
-            : "Warp Time"}
+            : "Warp time"}
         </Button>
       </PopoverTrigger>
       <PopoverContent>
         <PopoverArrow />
         <PopoverCloseButton />
-        <PopoverHeader>Warp Time</PopoverHeader>
+        <PopoverHeader>Warp time</PopoverHeader>
         <PopoverBody>
           <Text mb="4">Change all clocks according to the primary clock:</Text>
           <Input type="time" onChange={(e) => handleChange(e)} ref={inputEl} />

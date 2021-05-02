@@ -68,15 +68,13 @@ const CustomClock = ({ id, name, timezone, isPrimary }: IClock) => {
         bgBlendMode: "multiply",
       };
     }
-    return {
-      bg: "green.100",
-    };
+    return {};
   };
 
   return (
     <Box {...warpState()} rounded="lg" overflow="hidden" p="1">
       <VStack
-        bg="green.100"
+        bg="gray.50"
         p="4"
         spacing={5}
         id={id}

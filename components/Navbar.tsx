@@ -1,13 +1,15 @@
-import { Heading, HStack, Text } from "@chakra-ui/react";
-import "@fontsource/lora/400.css";
-import "@fontsource/lora/700.css";
+import { Heading, Stack } from "@chakra-ui/react";
 
 const Navbar = () => {
   return (
-    <HStack justify="space-between">
+    <Stack
+      justify="space-between"
+      align="baseline"
+      direction={["column", "row"]}
+    >
       <Heading letterSpacing="tight">Waqt</Heading>
       <Heading size="md">A simple timezone tracker</Heading>
-    </HStack>
+    </Stack>
   );
 };
 

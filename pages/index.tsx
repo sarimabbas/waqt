@@ -10,20 +10,9 @@ export default function Home() {
   const setShow = useSetRecoilState(showAddClockModal);
   return (
     <Layout>
-      <Text>
-        Direct all queries to{" "}
-        <Link href="mailto:hello@sarim.work">hello@sarim.work</Link>
-      </Text>
       <Box h="8" />
       <HStack justifyContent="space-between">
-        <Button
-          onClick={() => setShow(true)}
-          bgColor="green.100"
-          textColor="olive.700"
-          _hover={{ bgColor: "green.200" }}
-        >
-          Add a clock
-        </Button>
+        <Button onClick={() => setShow(true)}>Add clock</Button>
         <ChangeTime />
       </HStack>
       <AddClock />
