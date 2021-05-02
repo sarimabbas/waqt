@@ -98,13 +98,13 @@ const CustomClock = ({ id, name, timezone, isPrimary }: IClock) => {
             id={isPrimary + ""}
             onClick={handleDelete}
             size="sm"
-            aria-label="delete"
+            aria-label="Delete clock"
             icon={<DeleteIcon />}
           />
           <IconButton
             onClick={handleMakePrimary}
             size="sm"
-            aria-label="delete"
+            aria-label="Set as primary clock"
             icon={<TimeIcon />}
           />
         </HStack>
