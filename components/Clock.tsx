@@ -1,10 +1,63 @@
+import { Heading, HStack, Text, VStack } from "@chakra-ui/layout";
 import Clock from "react-clock";
-import { DateTime } from "luxon";
-import { Box, Heading, VStack, Text, HStack } from "@chakra-ui/layout";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { IClock } from "../models";
+import { centralClock, clocks } from "../store";
+import {
+  Editable,
+  EditableInput,
+  EditablePreview,
+  IconButton,
+} from "@chakra-ui/react";
+import { DeleteIcon } from "@chakra-ui/icons";
+import TextEditable from "./TextEditable";
 
-const CustomClock = ({ time }: { time: DateTime }) => {
+const CustomClock = ({ id, name, timezone }: IClock) => {
+  const clockTime = useRecoilValue(centralClock);
+  const time = clockTime.setZone(timezone);
+  const setClocks = useSetRecoilState(clocks);
+
+  const handleEditName = (val: string) => {
+    setClocks((clocks) =>
+      clocks.map((c) => {
+        if (c.id === id) {
+          return {
+            ...c,
+            name: val,
+          };
+        } else {
+          return c;
+        }
+      })
+    );
+  };
+
+  const handleDelete = () => {
+    setClocks((clocks) => {
+      const updd = clocks.filter((c) => c.id !== id);
+      console.log(updd);
+      return updd;
+    });
+  };
+
   return (
-    <VStack bg="green.100" rounded="lg" p="4" spacing={5}>
+    <VStack
+      bg="green.100"
+      rounded="lg"
+      p="4"
+      spacing={5}
+      id={id}
+      pos="relative"
+    >
+      <IconButton
+        onClick={handleDelete}
+        size="xs"
+        aria-label="delete"
+        icon={<DeleteIcon />}
+        pos="absolute"
+        top="5"
+        right="5"
+      />
       <Clock
         value={time.toJSDate()}
         renderHourMarks={true}
@@ -14,7 +67,14 @@ const CustomClock = ({ time }: { time: DateTime }) => {
         renderNumbers={true}
       />
       <VStack>
-        <Heading size="md">New Haven</Heading>
+        {/* editable heading */}
+        <Heading size="md" textAlign="center" noOfLines={1} isTruncated>
+          <TextEditable
+            initialValue={name ?? timezone}
+            onBlur={handleEditName}
+          />
+        </Heading>
+        {/* date and time */}
         <HStack>
           <Text>
             {time.toLocaleString({

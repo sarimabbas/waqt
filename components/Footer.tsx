@@ -1,7 +1,7 @@
-import ToggleDarkMode from "../components/ToggleDarkMode";
+import { Box } from "@chakra-ui/react";
 
 const Footer = () => {
-  return <ToggleDarkMode />;
+  return <Box h="4"></Box>;
 };
 
 export default Footer;
