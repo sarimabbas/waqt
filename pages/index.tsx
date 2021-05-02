@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <script async defer src="https://buttons.github.io/buttons.js"></script>
+        <script src="https://buttons.github.io/buttons.js"></script>
       </Head>
       <Layout>
         <Box h="8" />
