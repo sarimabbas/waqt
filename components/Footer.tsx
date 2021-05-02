@@ -1,5 +1,6 @@
 import { Box, Text, Link, HStack } from "@chakra-ui/react";
 import ToggleDarkMode from "./ToggleDarkMode";
+import GitHubButton from "react-github-btn";
 
 const Footer = () => {
   return (
@@ -8,8 +9,7 @@ const Footer = () => {
         <ToggleDarkMode />
         <HStack align="baseline">
           {/* github */}
-          <a
-            className="github-button"
+          <GitHubButton
             href="https://github.com/sarimabbas/waqt-next"
             data-color-scheme="no-preference: light; light: light; dark: dark;"
             data-size="large"
@@ -17,7 +17,7 @@ const Footer = () => {
             aria-label="Star sarimabbas/waqt-next on GitHub"
           >
             Star
-          </a>
+          </GitHubButton>
           {/* product hunt */}
           <a
             href="https://www.producthunt.com/posts/waqt?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-waqt"

@@ -11,9 +11,7 @@ export default function Home() {
   const setShow = useSetRecoilState(showAddClockModal);
   return (
     <>
-      <Head>
-        <script src="https://buttons.github.io/buttons.js"></script>
-      </Head>
+      <Head>Waqt - A simple timezone tracker</Head>
       <Layout>
         <Box h="8" />
         <HStack justifyContent="space-between">

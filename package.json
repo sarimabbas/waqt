@@ -18,9 +18,11 @@
     "luxon": "^1.26.0",
     "moment-timezone": "^0.5.33",
     "next": "10.2.0",
+    "next-transpile-modules": "^7.0.0",
     "react": "17.0.2",
     "react-clock": "^3.0.0",
     "react-dom": "17.0.2",
+    "react-github-btn": "^1.2.0",
     "react-select": "^4.3.0",
     "recoil": "^0.2.0",
     "uuid": "^8.3.2"
