@@ -22,7 +22,6 @@ const ChangeTime = () => {
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const checkTime = e.target.value;
-    console.log("check time", checkTime);
     if (checkTime !== "") {
       const hour = parseInt(checkTime.split(":")[0]);
       const minute = parseInt(checkTime.split(":")[1]);

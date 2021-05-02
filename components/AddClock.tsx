@@ -60,15 +60,15 @@ function AddClock() {
         </ModalHeader>
         <ModalCloseButton />
         <ModalBody>
-          <Text>Add by timezone...</Text>
+          <Text mb="2">Add by timezone...</Text>
           <Select
             options={timezones}
             onChange={(val) => {
               setSelectedTimezone(val?.value);
             }}
           />
-          <Box h={10}></Box>
-          <Text>...Or by city</Text>
+          {/* <Box h={10}></Box> */}
+          {/* <Text>...Or by city</Text> */}
         </ModalBody>
         <ModalFooter>
           <Button onClick={handleAdd} disabled={!selectedTimezone}>

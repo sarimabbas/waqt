@@ -1,13 +1,13 @@
 import { DeleteIcon, TimeIcon } from "@chakra-ui/icons";
 import {
+  Box,
   Heading,
   HStack,
+  IconButton,
   Text,
-  VStack,
-  Box,
   useColorModeValue,
+  VStack,
 } from "@chakra-ui/react";
-import { IconButton } from "@chakra-ui/react";
 import Clock from "react-clock";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { IClock } from "../models";
@@ -41,15 +41,13 @@ const CustomClock = ({ id, name, timezone, isPrimary }: IClock) => {
 
   const handleDelete = () => {
     setClocks((clocks) => {
-      const updd = clocks.filter((c) => c.id !== id);
-      console.log(updd);
-      return updd;
+      return clocks.filter((c) => c.id !== id);
     });
   };
 
   const handleMakePrimary = () => {
-    setClocks((clocks) =>
-      clocks.map((c) => {
+    setClocks((clocks) => {
+      const updated = clocks.map((c) => {
         if (c.id === id) {
           return {
             ...c,
@@ -61,29 +59,25 @@ const CustomClock = ({ id, name, timezone, isPrimary }: IClock) => {
             isPrimary: false,
           };
         }
-      })
-    );
+      });
+      return updated;
+    });
   };
 
   const cardBgColor = useColorModeValue("gray.50", "gray.700");
 
-  const warpState = () => {
-    if (isPrimary) {
-      return {
-        bg: "linear-gradient(#e66465, #9198e5)",
-        bgRepeat: "no-repeat",
-        bgSize: "cover",
-        bgPosition: "50% 10%",
-        bgBlendMode: "multiply",
-      };
-    }
-    return {};
-  };
-
   return (
-    <Box {...warpState()} rounded="lg" overflow="hidden" p="1">
+    <Box
+      rounded="lg"
+      overflow="hidden"
+      p="1"
+      bg={isPrimary ? "linear-gradient(#e66465, #9198e5)" : cardBgColor}
+      bgRepeat="no-repeat"
+      bgSize="cover"
+      bgPosition="50% 10%"
+      bgBlendMode="multiply"
+    >
       <VStack
-        data-is-primary={isPrimary}
         bg={cardBgColor}
         p="4"
         spacing={5}
@@ -101,6 +95,7 @@ const CustomClock = ({ id, name, timezone, isPrimary }: IClock) => {
           spacing={10}
         >
           <IconButton
+            id={isPrimary + ""}
             onClick={handleDelete}
             size="sm"
             aria-label="delete"
