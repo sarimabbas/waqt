@@ -12,6 +12,11 @@ export default function Home() {
   return (
     <>
       <Head>Waqt - A simple timezone tracker</Head>
+      <meta
+        name="description"
+        content="An essential tool for the remote era. Waqt lacks you effortlessly convert between timezones across the world. With its powerful warp time feature, you can keep up with colleagues and friends no matter where they are."
+        key="description"
+      />
       <Layout>
         <Box h="8" />
         <HStack justifyContent="space-between">
