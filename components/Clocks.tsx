@@ -8,7 +8,7 @@ const Clocks = () => {
   return (
     <SimpleGrid columns={2} spacing={5}>
       {clockList.map((c) => (
-        <Clock {...c} />
+        <Clock {...c} key={c.id} />
       ))}
     </SimpleGrid>
   );

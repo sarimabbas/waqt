@@ -1,15 +1,11 @@
+import { DeleteIcon } from "@chakra-ui/icons";
 import { Heading, HStack, Text, VStack } from "@chakra-ui/layout";
+import { IconButton } from "@chakra-ui/react";
 import Clock from "react-clock";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { IClock } from "../models";
 import { centralClock, clocks } from "../store";
-import {
-  Editable,
-  EditableInput,
-  EditablePreview,
-  IconButton,
-} from "@chakra-ui/react";
-import { DeleteIcon } from "@chakra-ui/icons";
+import { changeJSDateTimezone } from "../utils";
 import TextEditable from "./TextEditable";
 
 const CustomClock = ({ id, name, timezone }: IClock) => {
@@ -59,7 +55,7 @@ const CustomClock = ({ id, name, timezone }: IClock) => {
         right="5"
       />
       <Clock
-        value={time.toJSDate()}
+        value={changeJSDateTimezone(time.toJSDate(), timezone)}
         renderHourMarks={true}
         hourMarksLength={5}
         hourMarksWidth={2}
