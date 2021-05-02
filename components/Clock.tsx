@@ -1,5 +1,12 @@
 import { DeleteIcon, TimeIcon } from "@chakra-ui/icons";
-import { Heading, HStack, Text, VStack, Box } from "@chakra-ui/layout";
+import {
+  Heading,
+  HStack,
+  Text,
+  VStack,
+  Box,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import { IconButton } from "@chakra-ui/react";
 import Clock from "react-clock";
 import { useRecoilValue, useSetRecoilState } from "recoil";
@@ -58,6 +65,8 @@ const CustomClock = ({ id, name, timezone, isPrimary }: IClock) => {
     );
   };
 
+  const cardBgColor = useColorModeValue("gray.50", "gray.700");
+
   const warpState = () => {
     if (isPrimary) {
       return {
@@ -74,29 +83,36 @@ const CustomClock = ({ id, name, timezone, isPrimary }: IClock) => {
   return (
     <Box {...warpState()} rounded="lg" overflow="hidden" p="1">
       <VStack
-        bg="gray.50"
+        data-is-primary={isPrimary}
+        bg={cardBgColor}
         p="4"
         spacing={5}
         id={id}
         pos="relative"
         rounded="lg"
       >
-        <VStack top="5" right="5" w="full" align="flex-end" spacing={10}>
+        <HStack
+          px={4}
+          w="full"
+          pos="absolute"
+          top="4"
+          align="center"
+          justify="space-between"
+          spacing={10}
+        >
           <IconButton
             onClick={handleDelete}
-            size="xs"
+            size="sm"
             aria-label="delete"
             icon={<DeleteIcon />}
-            pos="absolute"
           />
           <IconButton
             onClick={handleMakePrimary}
-            size="xs"
+            size="sm"
             aria-label="delete"
             icon={<TimeIcon />}
-            pos="absolute"
           />
-        </VStack>
+        </HStack>
         <Clock
           value={changeJSDateTimezone(time.toJSDate(), timezone)}
           renderHourMarks={true}
@@ -106,13 +122,6 @@ const CustomClock = ({ id, name, timezone, isPrimary }: IClock) => {
           renderNumbers={true}
         />
         <VStack>
-          {/* editable heading */}
-          <Heading size="md" textAlign="center" noOfLines={1} isTruncated>
-            <TextEditable
-              initialValue={name ?? timezone}
-              onBlur={handleEditName}
-            />
-          </Heading>
           {/* date and time */}
           <HStack>
             <Text>
@@ -129,6 +138,13 @@ const CustomClock = ({ id, name, timezone, isPrimary }: IClock) => {
               })}
             </Text>
           </HStack>
+          {/* editable heading */}
+          <Heading size="md" textAlign="center" noOfLines={1} isTruncated>
+            <TextEditable
+              initialValue={name ?? timezone}
+              onBlur={handleEditName}
+            />
+          </Heading>
         </VStack>
       </VStack>
     </Box>

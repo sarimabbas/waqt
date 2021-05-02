@@ -1,29 +1,36 @@
 import { Box, Text, Link, HStack } from "@chakra-ui/react";
+import ToggleDarkMode from "./ToggleDarkMode";
 
 const Footer = () => {
   return (
-    <Box>
-      <HStack align="baseline">
-        {/* product hunt */}
-        <a
-          href="https://www.producthunt.com/posts/waqt?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-waqt"
-          target="_blank"
-        >
-          <img
-            src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=141990&theme=dark"
-            alt="Waqt - Simple timezone tracker | Product Hunt"
-            style={{ height: "30px" }}
-            height="30"
-          />
-        </a>
-        {/* github */}
-        <iframe
-          src="https://ghbtns.com/github-btn.html?user=sarimabbas&repo=waqt-next&type=star&count=true&size=large"
-          frameBorder="0"
-          scrolling="0"
-          height="30"
-          title="GitHub"
-        ></iframe>
+    <Box w="full">
+      <HStack justify="space-between" w="full">
+        <ToggleDarkMode />
+        <HStack align="baseline">
+          {/* github */}
+          <a
+            className="github-button"
+            href="https://github.com/sarimabbas/waqt-next"
+            data-color-scheme="no-preference: light; light: light; dark: dark;"
+            data-size="large"
+            data-show-count="true"
+            aria-label="Star sarimabbas/waqt-next on GitHub"
+          >
+            Star
+          </a>
+          {/* product hunt */}
+          <a
+            href="https://www.producthunt.com/posts/waqt?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-waqt"
+            target="_blank"
+          >
+            <img
+              src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=141990&theme=dark"
+              alt="Waqt - Simple timezone tracker | Product Hunt"
+              style={{ height: "30px" }}
+              height="30"
+            />
+          </a>
+        </HStack>
       </HStack>
 
       <Box h={4} />

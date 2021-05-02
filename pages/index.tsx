@@ -5,19 +5,25 @@ import ChangeTime from "../components/ChangeTime";
 import Clocks from "../components/Clocks";
 import Layout from "../components/Layout";
 import { showAddClockModal } from "../store";
+import Head from "next/head";
 
 export default function Home() {
   const setShow = useSetRecoilState(showAddClockModal);
   return (
-    <Layout>
-      <Box h="8" />
-      <HStack justifyContent="space-between">
-        <Button onClick={() => setShow(true)}>Add clock</Button>
-        <ChangeTime />
-      </HStack>
-      <AddClock />
-      <Box h="4"></Box>
-      <Clocks />
-    </Layout>
+    <>
+      <Head>
+        <script async defer src="https://buttons.github.io/buttons.js"></script>
+      </Head>
+      <Layout>
+        <Box h="8" />
+        <HStack justifyContent="space-between">
+          <Button onClick={() => setShow(true)}>Add clock</Button>
+          <ChangeTime />
+        </HStack>
+        <AddClock />
+        <Box h="4"></Box>
+        <Clocks />
+      </Layout>
+    </>
   );
 }

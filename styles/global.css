@@ -6,17 +6,21 @@ body,
   background-color: transparent;
 }
 
+:root {
+  --clock-color: #4a5568;
+}
+
 .react-clock {
-  color: hsl(72, 30%, 43%);
+  color: var(--clock-color);
 }
 
 .react-clock__face {
-  border: 1px solid hsl(72, 30%, 43%);
+  border: 1px solid var(--clock-color);
 }
 
 .react-clock__hand__body {
-  background-color: hsl(72, 30%, 43%);
+  background-color: var(--clock-color);
 }
 .react-clock__mark__body {
-  background-color: hsl(72, 30%, 43%);
+  background-color: var(--clock-color);
 }
