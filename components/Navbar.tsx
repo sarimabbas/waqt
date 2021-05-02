@@ -6,10 +6,7 @@ const Navbar = () => {
   return (
     <HStack justify="space-between">
       <Heading letterSpacing="tight">Waqt</Heading>
-      <HStack spacing={10}>
-        <Text>Help</Text>
-        <Text>Sign in</Text>
-      </HStack>
+      <Heading size="md">A simple timezone tracker</Heading>
     </HStack>
   );
 };
