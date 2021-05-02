@@ -1,5 +1,4 @@
 import { Box, Button, HStack } from "@chakra-ui/react";
-import Head from "next/head";
 import { useSetRecoilState } from "recoil";
 import AddClock from "../components/AddClock";
 import ChangeTime from "../components/ChangeTime";
@@ -7,6 +6,7 @@ import Clocks from "../components/Clocks";
 import Layout from "../components/Layout";
 import { showAddClockModal } from "../store";
 import Seo from "../components/Seo";
+import Tutorial from "../components/Tutorial";
 
 export default function Home() {
   const setShow = useSetRecoilState(showAddClockModal);
@@ -24,6 +24,7 @@ export default function Home() {
           <ChangeTime />
         </HStack>
         <AddClock />
+        <Tutorial />
         <Box h="4"></Box>
         <Clocks />
       </Layout>

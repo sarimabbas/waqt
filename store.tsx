@@ -50,3 +50,8 @@ export const showAddClockModal = atom<boolean>({
   key: "showAddClockModal",
   default: false,
 });
+
+export const showTutorialAtom = atom<boolean>({
+  key: "showTutorial",
+  default: false,
+});

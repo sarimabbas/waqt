@@ -1,12 +1,19 @@
 import { Box, Text, Link, HStack } from "@chakra-ui/react";
 import ToggleDarkMode from "./ToggleDarkMode";
 import GitHubButton from "react-github-btn";
+import { useSetRecoilState } from "recoil";
+import { showTutorialAtom } from "../store";
 
 const Footer = () => {
+  const setShowTutorial = useSetRecoilState(showTutorialAtom);
+
   return (
     <Box w="full">
       <HStack justify="space-between" w="full">
-        <ToggleDarkMode />
+        <HStack spacing={5} align="center">
+          <Link onClick={() => setShowTutorial(true)}>How to use</Link>
+          <ToggleDarkMode />
+        </HStack>
         <HStack align="baseline">
           {/* github */}
           <GitHubButton
