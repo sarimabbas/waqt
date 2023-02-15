@@ -15,7 +15,7 @@ export default function Home() {
       <Seo
         title="Waqt - A simple timezone tracker"
         description="An essential tool for the remote era. Waqt lets you effortlessly convert between timezones across the world. With its powerful warp time feature, you can keep up with colleagues and friends no matter where they are."
-        image={`https://getwaqt.netlify.app/screenshot.png`}
+        image={`https://waqt.doom.sh/screenshot.png`}
       />
       <Layout>
         <Box h="8" />

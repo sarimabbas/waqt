@@ -1,15 +1,15 @@
 import {
-  Popover,
-  PopoverTrigger,
-  PopoverContent,
-  PopoverHeader,
-  PopoverBody,
-  Input,
-  Text,
-  PopoverFooter,
-  PopoverArrow,
-  PopoverCloseButton,
   Button,
+  Input,
+  Popover,
+  PopoverArrow,
+  PopoverBody,
+  PopoverCloseButton,
+  PopoverContent,
+  PopoverFooter,
+  PopoverHeader,
+  PopoverTrigger,
+  Text,
 } from "@chakra-ui/react";
 import { DateTime } from "luxon";
 import { ChangeEvent, useRef } from "react";
@@ -26,11 +26,15 @@ const ChangeTime = () => {
       const hour = parseInt(checkTime.split(":")[0]);
       const minute = parseInt(checkTime.split(":")[1]);
       const primaryClock = clocksData.find((c) => c.isPrimary);
-      const warpClock = DateTime.fromObject({
-        hour: hour,
-        minute: minute,
-        zone: primaryClock.timezone,
-      });
+      const warpClock = DateTime.fromObject(
+        {
+          hour: hour,
+          minute: minute,
+        },
+        {
+          zone: primaryClock.timezone,
+        }
+      );
       setWarpClock(warpClock);
     } else {
       setWarpClock(null);
@@ -56,7 +60,7 @@ const ChangeTime = () => {
   const inputEl = useRef(null);
 
   return (
-    <Popover>
+    <Popover id="popover" isLazy>
       <PopoverTrigger>
         <Button {...buttonBaseState()} _hover={warpState} w="110px">
           {warpClock

@@ -1,24 +1,23 @@
 import {
-  Box,
+  Button,
   Heading,
   Modal,
   ModalBody,
   ModalCloseButton,
   ModalContent,
-  Button,
   ModalFooter,
   ModalHeader,
   ModalOverlay,
   Text,
 } from "@chakra-ui/react";
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
-import Select from "react-select";
-import moment from "moment-timezone";
-import { clocks, showAddClockModal } from "../store";
-import { useMemo, useState } from "react";
 import { DateTime } from "luxon";
-import { IClock } from "../models";
+import moment from "moment-timezone";
+import { useMemo, useState } from "react";
+import Select from "react-select";
+import { useRecoilState } from "recoil";
 import { v4 as uuidv4 } from "uuid";
+import { IClock } from "../models";
+import { clocks, showAddClockModal } from "../store";
 
 function AddClock() {
   const [show, setShow] = useRecoilState(showAddClockModal);
