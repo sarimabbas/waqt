@@ -1,6 +1,7 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import "@fontsource/lora/400.css";
 import "@fontsource/lora/700.css";
+import { Analytics } from "@vercel/analytics/react";
 import { DateTime } from "luxon";
 import { useEffect } from "react";
 import "react-clock/dist/Clock.css";
@@ -32,6 +33,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <ChakraProvider theme={theme}>
       <Component {...pageProps} />
+      <Analytics />
     </ChakraProvider>
   );
 }
