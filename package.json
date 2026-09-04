@@ -5,7 +5,7 @@
   "packageManager": "npm@11.6.1",
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
+    "build": "NEXT_TELEMETRY_DISABLED=1 next build && next export",
     "deploy": "npm run build && wrangler deploy",
     "start": "next start"
   },
