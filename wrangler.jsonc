@@ -1,0 +1,16 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "waqt",
+  "account_id": "f7df7fafe5b4e9d4e0446100575c0bf4",
+  "compatibility_date": "2026-09-03",
+  "assets": {
+    "directory": "./out",
+    "not_found_handling": "404-page"
+  },
+  "routes": [
+    {
+      "pattern": "waqt.lil.run",
+      "custom_domain": true
+    }
+  ]
+}
