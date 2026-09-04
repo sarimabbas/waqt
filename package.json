@@ -2,6 +2,7 @@
   "name": "waqt-next",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "npm@11.6.1",
   "scripts": {
     "dev": "next dev",
     "build": "next build && next export",
