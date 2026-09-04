@@ -17,11 +17,11 @@ const Footer = () => {
         <HStack align="baseline">
           {/* github */}
           <GitHubButton
-            href="https://github.com/sarimabbas/waqt-next"
+            href="https://github.com/sarimabbas/waqt"
             data-color-scheme="no-preference: light; light: light; dark: dark;"
             data-size="large"
             data-show-count="true"
-            aria-label="Star sarimabbas/waqt-next on GitHub"
+            aria-label="Star sarimabbas/waqt on GitHub"
           >
             Star
           </GitHubButton>
