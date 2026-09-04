@@ -38,3 +38,5 @@ npm run deploy
 ```
 
 Production: [waqt.lil.run](https://waqt.lil.run)
+
+Cloudflare Workers Builds automatically deploys pushes to `main` and creates preview builds for other branches.
